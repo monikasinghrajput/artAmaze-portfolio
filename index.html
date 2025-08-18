@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>artAmaze - Digital Art Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <img src="image/artamaze_logo 2024 v3-18.png" alt="artAmaze" class="logo-img">
+          <span class="logo-text">artAmaze</span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link active">HOME</a></li>
+          <li><a href="#services" class="nav-link">OUR SERVICES</a></li>
+          <li><a href="#portfolio" class="nav-link">WHAT WE DO</a></li>
+          <li><a href="#about" class="nav-link">ABOUT</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+        <div class="hamburger" aria-label="menu"><span></span><span></span><span></span></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero-banner">
+    <div class="hero-background">
+      <div class="hero-overlay"></div>
+      <img src="image/artAmaze-Banner.png" alt="Hero Background" class="hero-bg-img">
+    </div>
+    <div class="hero-content-wrapper">
+      <div class="hero-content">
+        <div class="services-list">
+          <h2>OUR SERVICES</h2>
+          <div class="service-item"><span class="service-number">01</span><span class="service-name">DIGITAL ILLUSTRATION</span></div>
+          <div class="service-item"><span class="service-number">02</span><span class="service-name">CHARACTER DESIGN</span></div>
+          <div class="service-item"><span class="service-number">03</span><span class="service-name">CONCEPT ART</span></div>
+          <div class="service-item"><span class="service-number">04</span><span class="service-name">GAME ASSETS</span></div>
+          <div class="service-item"><span class="service-number">05</span><span class="service-name">ANIMATION</span></div>
+          <button class="explore-btn" onclick="scrollToPortfolio()"><i class="fas fa-rocket"></i> Explore now</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+      <span class="dot" data-slide="4"></span>
+    </div>
+  </section>
+
+  <section id="services" class="page-anchor" style="padding-top:2rem"></section>
+
+  <!-- ================== PORTFOLIO (sticky filters + zero-gap grid) ================== -->
+  <section id="portfolio" class="portfolio" style="padding-top:0">
+    <div class="jc-filters">
+      <button class="jc-filter active" data-filter="all">ALL</button>
+      <button class="jc-filter" data-filter="painting">PAINTING</button>
+      <button class="jc-filter" data-filter="illustration">ILLUSTRATION</button>
+      <button class="jc-filter" data-filter="animation">ANIMATION</button>
+      <button class="jc-filter" data-filter="video">AI VIDEO</button>
+    </div>
+
+    <div class="jc-grid" id="jcGrid">
+      <!-- PAINTING -->
+      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('painting')" title="Painting">
+        <img src="image/painting-2.jpg" alt="Painting">
+        <div class="jc-ovr">
+          <div class="jc-name">Painting</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('painting')">
+        <img src="image/painting-3.jpg" alt="Painting">
+        <div class="jc-ovr">
+          <div class="jc-name">Painting</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+
+      <!-- ILLUSTRATION -->
+      <a class="jc-item" data-cat="illustration" href="#" onclick="openGallery('illustration')" title="Illustration">
+        <img src="image/digital-character.jpg" alt="Illustration">
+        <div class="jc-ovr">
+          <div class="jc-name">Illustration</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+      <a class="jc-item" data-cat="illustration" href="#" onclick="openGallery('illustration')">
+        <img src="image/illustration-1.jpg" alt="Illustration">
+        <div class="jc-ovr">
+          <div class="jc-name">Illustration</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+
+      <!-- ANIMATION -->
+      <a class="jc-item" data-cat="animation" href="#" onclick="openGallery('animation')" title="Animation">
+        <img src="image/character-design.jpg" alt="Animation">
+        <div class="jc-ovr">
+          <div class="jc-name">Animation</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+      <a class="jc-item" data-cat="animation" href="#" onclick="openGallery('animation')">
+        <img src="image/animate-1.jpg" alt="Animation">
+        <div class="jc-ovr">
+          <div class="jc-name">Animation</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+
+      <!-- AI VIDEO -->
+      <a class="jc-item" data-cat="video" href="#" onclick="openGallery('video')" title="AI Video">
+        <img src="image/sci-fi.jpg" alt="AI Video">
+        <div class="jc-ovr">
+          <div class="jc-name">AI Video</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+      <a class="jc-item" data-cat="video" href="#" onclick="openGallery('video')">
+        <img src="image/ai-1.jpg" alt="AI Video">
+        <div class="jc-ovr">
+          <div class="jc-name">AI Video</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+
+      <!-- STUDY -->
+      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('study')" title="Character Study">
+        <img src="image/Character-Study.jpg" alt="Character Study">
+        <div class="jc-ovr">
+          <div class="jc-name">Character Study</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('study')">
+        <img src="image/study-1.jpg" alt="Character Study">
+        <div class="jc-ovr">
+          <div class="jc-name">Character Study</div>
+          <div class="jc-view">View</div>
+          <div class="jc-line"></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Gallery Modal -->
+  <div id="galleryModal" class="gallery-modal">
+    <div class="gallery-header">
+      <button class="gallery-back" onclick="closeGallery()">← Back</button>
+      <h1 id="galleryTitle" class="gallery-title">Gallery</h1>
+    </div>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </div>
+
+  <!-- About -->
+  <section id="about" class="quick-about">
+    <div class="container">
+      <div class="about-content">
+        <h2>Why Choose artAmaze?</h2>
+        <p>We bring your creative visions to life with cutting-edge digital art and design solutions.</p>
+        <div class="stats">
+          <div class="stat"><span class="stat-number">500+</span><span>Projects Completed</span></div>
+          <div class="stat"><span class="stat-number">100+</span><span>Happy Clients</span></div>
+          <div class="stat"><span class="stat-number">5+</span><span>Years Experience</span></div>
+        </div>
+        <button class="explore-btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Work with us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact (simple) -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Contact</h2>
+          <div class="contact-item"><i class="fa-solid fa-envelope"></i>
+            <div><h4>Email</h4><p><a href="mailto:hello@artamaze.com" style="color:#ffd700">hello@artamaze.com</a></p></div>
+          </div>
+          <div class="contact-item"><i class="fa-solid fa-phone"></i>
+            <div><h4>Phone</h4><p><a href="tel:+91XXXXXXXXXX" style="color:#ffd700">+91 XXXXXXXXXX</a></p></div>
+          </div>
+          <div class="contact-item"><i class="fa-solid fa-location-dot"></i>
+            <div><h4>Location</h4><p>Bengaluru, India</p></div>
+          </div>
+          <div class="social-links" aria-label="social links">
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="Behance"><i class="fab fa-behance"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container"><p>&copy; 2024 artAmaze. All rights reserved.</p></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

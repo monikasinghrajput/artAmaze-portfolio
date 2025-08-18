@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery • artAmaze</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{ background:#0f1115; }
+    .g-wrap{max-width:100vw;margin:78px auto 40px;padding:0}
+
+    /* sticky top (header ke niche) */
+    .g-top{
+      position:sticky; top:72px; z-index:3;
+      background:linear-gradient(180deg,rgba(15,17,21,1),rgba(15,17,21,.88));
+      border-bottom:1px solid rgba(255,215,0,.28);
+      padding:10px 10px 12px; display:flex; align-items:center; gap:12px
+    }
+    .g-back{border:1px solid #ffd700;background:transparent;color:#ffd700;border-radius:999px;padding:6px 10px;cursor:pointer}
+    .g-title{margin:0;color:#ffd700;font-weight:700;letter-spacing:.4px;font-size:1.05rem}
+
+    /* Masonry by CSS columns — ZERO gap, FULL width */
+    .g-masonry{width:100vw;margin-left:50%;transform:translateX(-50%);column-count:4;column-gap:0}
+    .g-item{break-inside:avoid;margin:0}
+    .g-item img{width:100%;height:auto;display:block}
+
+    @media (max-width:1200px){ .g-masonry{column-count:3} }
+    @media (max-width:900px){  .g-masonry{column-count:2} }
+    @media (max-width:560px){  .g-masonry{column-count:1} }
+  </style>
+</head>
+<body>
+  <main class="g-wrap">
+    <div class="g-top">
+      <button class="g-back" onclick="history.back()">← Back</button>
+      <h1 id="albumTitle" class="g-title">Gallery</h1>
+    </div>
+    <div id="gMasonry" class="g-masonry"></div>
+  </main>
+
+  <script>
+    const ALBUMS = {
+      painting: { title:'Painting', images:['image/painting-1.jpg','image/painting-2.jpg','image/painting-3.jpg','image/painting-4.jpg','image/painting-5.jpg','image/painting-6.jpg'] },
+      illustration: { title:'Illustration', images:['image/digital-character.jpg','image/illustration-1.jpg','image/illustration-2.jpg','image/illustration-3.jpg','image/illustration-4.jpg'] },
+      animation: { title:'Animation', images:['image/character-design.jpg','image/characte-1.jpg','image/characte-2.jpg','image/characte-3.jpg'] },
+      video: { title:'AI Video', images:['image/sci-fi.jpg','image/sci-fi-2.jpg','image/sci-fi-3.jpg'] },
+      study: { title:'Character Study', images:['image/Character-Study.jpg','image/Character-Study-2.jpg','image/Character-Study-3.jpg'] }
+    };
+
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const key = params.get('album') || 'painting';
+      const album = ALBUMS[key] || ALBUMS.painting;
+
+      document.getElementById('albumTitle').textContent = album.title;
+
+      const root = document.getElementById('gMasonry');
+      root.innerHTML = '';
+      album.images.forEach(src=>{
+        const d = document.createElement('div');
+        d.className = 'g-item';
+        const img = new Image();
+        img.loading = 'lazy'; img.decoding = 'async';
+        img.src = src; img.alt = album.title;
+        d.appendChild(img);
+        root.appendChild(d);
+      });
+    })();
+  </script>
+</body>
+</html>
