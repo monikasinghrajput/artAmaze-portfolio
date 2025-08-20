@@ -39,10 +39,10 @@
       <div class="hero-content">
         <div class="services-list">
           <h2>OUR SERVICES</h2>
-          <div class="service-item"><span class="service-number">01</span><span class="service-name">DIGITAL ILLUSTRATION</span></div>
-          <div class="service-item"><span class="service-number">02</span><span class="service-name">CHARACTER DESIGN</span></div>
-          <div class="service-item"><span class="service-number">03</span><span class="service-name">CONCEPT ART</span></div>
-          <div class="service-item"><span class="service-number">04</span><span class="service-name">GAME ASSETS</span></div>
+          <div class="service-item"><span class="service-number">01</span><span class="service-name">CHARACTER DESIGN</span></div>
+          <div class="service-item"><span class="service-number">02</span><span class="service-name">ENVIRONMENT DESIGN</span></div>
+          <div class="service-item"><span class="service-number">03</span><span class="service-name">CREATURE DESIGN</span></div>
+          <div class="service-item"><span class="service-number">04</span><span class="service-name">PROP DESIGN</span></div>
           <div class="service-item"><span class="service-number">05</span><span class="service-name">ANIMATION</span></div>
           <button class="explore-btn" onclick="scrollToPortfolio()"><i class="fas fa-rocket"></i> Explore now</button>
         </div>
@@ -59,120 +59,37 @@
 
   <section id="services" class="page-anchor" style="padding-top:2rem"></section>
 
-  <!-- ================== PORTFOLIO (sticky filters + zero-gap grid) ================== -->
+  <!-- PORTFOLIO GRID (Uniform squares, no gap) -->
   <section id="portfolio" class="portfolio" style="padding-top:0">
-    <div class="jc-filters">
-      <button class="jc-filter active" data-filter="all">ALL</button>
-      <button class="jc-filter" data-filter="painting">PAINTING</button>
-      <button class="jc-filter" data-filter="illustration">ILLUSTRATION</button>
-      <button class="jc-filter" data-filter="animation">ANIMATION</button>
-      <button class="jc-filter" data-filter="video">AI VIDEO</button>
-    </div>
-
-    <div class="jc-grid" id="jcGrid">
-      <!-- PAINTING -->
-      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('painting')" title="Painting">
-        <img src="image/painting-2.jpg" alt="Painting">
-        <div class="jc-ovr">
-          <div class="jc-name">Painting</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('painting')">
-        <img src="image/painting-3.jpg" alt="Painting">
-        <div class="jc-ovr">
-          <div class="jc-name">Painting</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-
-      <!-- ILLUSTRATION -->
-      <a class="jc-item" data-cat="illustration" href="#" onclick="openGallery('illustration')" title="Illustration">
-        <img src="image/digital-character.jpg" alt="Illustration">
-        <div class="jc-ovr">
-          <div class="jc-name">Illustration</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-      <a class="jc-item" data-cat="illustration" href="#" onclick="openGallery('illustration')">
-        <img src="image/illustration-1.jpg" alt="Illustration">
-        <div class="jc-ovr">
-          <div class="jc-name">Illustration</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-
-      <!-- ANIMATION -->
-      <a class="jc-item" data-cat="animation" href="#" onclick="openGallery('animation')" title="Animation">
-        <img src="image/character-design.jpg" alt="Animation">
-        <div class="jc-ovr">
-          <div class="jc-name">Animation</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-      <a class="jc-item" data-cat="animation" href="#" onclick="openGallery('animation')">
-        <img src="image/animate-1.jpg" alt="Animation">
-        <div class="jc-ovr">
-          <div class="jc-name">Animation</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-
-      <!-- AI VIDEO -->
-      <a class="jc-item" data-cat="video" href="#" onclick="openGallery('video')" title="AI Video">
-        <img src="image/sci-fi.jpg" alt="AI Video">
-        <div class="jc-ovr">
-          <div class="jc-name">AI Video</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-      <a class="jc-item" data-cat="video" href="#" onclick="openGallery('video')">
-        <img src="image/ai-1.jpg" alt="AI Video">
-        <div class="jc-ovr">
-          <div class="jc-name">AI Video</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-
-      <!-- STUDY -->
-      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('study')" title="Character Study">
-        <img src="image/Character-Study.jpg" alt="Character Study">
-        <div class="jc-ovr">
-          <div class="jc-name">Character Study</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
-      <a class="jc-item" data-cat="painting" href="#" onclick="openGallery('study')">
-        <img src="image/study-1.jpg" alt="Character Study">
-        <div class="jc-ovr">
-          <div class="jc-name">Character Study</div>
-          <div class="jc-view">View</div>
-          <div class="jc-line"></div>
-        </div>
-      </a>
+    <div id="grid" class="grid-gallery">
+      <!-- Cards will be injected by JS from PROJECTS -->
     </div>
   </section>
 
-  <!-- Gallery Modal -->
-  <div id="galleryModal" class="gallery-modal">
-    <div class="gallery-header">
-      <button class="gallery-back" onclick="closeGallery()">← Back</button>
-      <h1 id="galleryTitle" class="gallery-title">Gallery</h1>
+  <!-- FULLSCREEN VIEWER (Lightbox with text + big arrows) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Close (Esc)">✕</button>
+
+    <button class="lb-arrow lb-prev" aria-label="Previous (←)">‹</button>
+    <button class="lb-arrow lb-next" aria-label="Next (→)">›</button>
+
+    <div class="lb-inner">
+      <div class="lb-media">
+        <img id="lb-image" alt="" />
+        <video id="lb-video" controls>
+          <source id="lb-video-src" src="" type="video/mp4">
+        </video>
+      </div>
+      <aside class="lb-aside">
+        <h2 id="lb-title">Title</h2>
+        <p id="lb-desc">Description</p>
+        <div class="lb-counter" id="lb-counter">1 / 1</div>
+      </aside>
     </div>
-    <div id="galleryGrid" class="gallery-grid"></div>
   </div>
 
   <!-- About -->
-  <section id="about" class="quick-about">
+  <section id="about" class="why-choose-section">
     <div class="container">
       <div class="about-content">
         <h2>Why Choose artAmaze?</h2>
@@ -182,40 +99,78 @@
           <div class="stat"><span class="stat-number">100+</span><span>Happy Clients</span></div>
           <div class="stat"><span class="stat-number">5+</span><span>Years Experience</span></div>
         </div>
-        <button class="explore-btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Work with us</button>
+
+        <div class="cta-section">
+          <div class="cta-content">
+            <h3>Ready for your next project?</h3>
+            <p>Let's get started!</p>
+          </div>
+          <button class="contact-btn" onclick="scrollToSection('#contact')">
+            <i class="fas fa-arrow-right"></i>
+            Contact us
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact (simple) -->
+  <!-- Contact -->
   <section id="contact" class="contact-section">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-info">
           <h2>Contact</h2>
-          <div class="contact-item"><i class="fa-solid fa-envelope"></i>
-            <div><h4>Email</h4><p><a href="mailto:hello@artamaze.com" style="color:#ffd700">hello@artamaze.com</a></p></div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>hello@artamaze.com</p>
+            </div>
           </div>
-          <div class="contact-item"><i class="fa-solid fa-phone"></i>
-            <div><h4>Phone</h4><p><a href="tel:+91XXXXXXXXXX" style="color:#ffd700">+91 XXXXXXXXXX</a></p></div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 9004164045</p>
+            </div>
           </div>
-          <div class="contact-item"><i class="fa-solid fa-location-dot"></i>
-            <div><h4>Location</h4><p>Bengaluru, India</p></div>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <h4>Location</h4>
+              <p>Bangalore, India</p>
+            </div>
           </div>
-          <div class="social-links" aria-label="social links">
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" title="Behance"><i class="fab fa-behance"></i></a>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="services-info">
+          <h2>OUR SERVICES</h2>
+          <ul class="services-list-footer">
+            <li>CHARACTER DESIGN</li>
+            <li>ENVIRONMENT DESIGN</li>
+            <li>CREATURE DESIGN</li>
+            <li>PROP DESIGN</li>
+            <li>VEHICLE DESIGN</li>
+            <li>ANIMATION</li>
+          </ul>
+        </div>
+        <div class="follow-us-section">
+          <h2>FOLLOW US</h2>
+          <div class="social-links">
+            <a href="https://www.instagram.com/artamaze_in/" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/artamaze.in" target="_blank" class="social-link" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/@artamazein" target="_blank" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/naveenkalal1/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.behance.net/naveen-kalal" target="_blank" class="social-link" title="Behance"><i class="fab fa-behance"></i></a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
-    <div class="container"><p>&copy; 2024 artAmaze. All rights reserved.</p></div>
+    <div class="container">
+      <p>&copy; 2024 artAmaze. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
